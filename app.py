@@ -1,4 +1,4 @@
-from Flask import flask, render_template, redirect
+from flask import Flask, render_template, redirect, jsonify
 import json
 
 app = Flask(__name__)
@@ -11,8 +11,8 @@ def root():
 def get_data(name):
     with open('static/population.json') as dt:
         data = json.load(dt)
-    return data[name]
-    
+    return jsonify(data.get(name))
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
