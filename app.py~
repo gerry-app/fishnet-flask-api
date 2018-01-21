@@ -1,0 +1,8 @@
+from Flask import flask, render_template, redirect
+
+@app.route('/')
+def root():
+    return
+
+@app.route('/state/<name>', methods=['GET','POST'])
+def 
